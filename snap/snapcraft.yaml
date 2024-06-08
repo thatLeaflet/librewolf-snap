@@ -15,7 +15,7 @@ description: |
 
   LibreWolf is NOT associated with Mozilla or its products.
   
-  Note: This is an unofficial repackaging and is not endorsed by the upstream project. Additionally, this package is probably has broken sandboxing and should only be used for testing purposes.
+  Note: This is an unofficial repackaging and is not endorsed by the upstream project.
 
 confinement: strict
 base: core22
@@ -37,12 +37,19 @@ parts:
     plugin: nil
     stage-packages: [librewolf, ffmpeg, ubuntu-restricted-extras]
 
+# taken from firefox snapcraft.yaml
+plugs:
+  browser-sandbox:
+    interface: browser-support
+    allow-sandbox: true
+
 apps:
   librewolf:
     command: usr/bin/librewolf
     extensions: [gnome]
     plugs:
-      - home
       - audio-playback
-      - removable-media # no auto-connect
+      - browser-sandbox
+      - home
       - network
+      - removable-media # no auto-connect
