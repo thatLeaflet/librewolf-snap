@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Librewolf
+Comment=Share files to nearby devices
+Exec=librewolf
+Icon=${SNAP}/meta/gui/librewolf.svg
+Terminal=false
+Type=Application
+Categories=Internet;

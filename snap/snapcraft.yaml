@@ -1,0 +1,48 @@
+name: librewolf
+title: Librewolf (unofficial)
+version: 126.0.1-1
+license: MPL-2.0
+website: https://librewolf.net/
+source-code: https://codeberg.org/librewolf
+issues: https://github.com/thatLeaflet/librewolf-snap/issues
+type: app
+icon: snap/gui/librewolf.svg
+summary: A custom version of Firefox, focused on privacy, security and freedom
+description: |
+  This project is an independent fork of Firefox, with the primary goals of privacy security and user freedom. It is the community run successor to LibreFox.
+
+  LibreWolf uses more than 500 privacy/security/performance settings, patches, LibreWolf-Addons (optional) and is designed to minimize data collection and telemetry as much as possible (updater, crashreporter and Firefox’s integrated addons that don’t respect privacy are removed).
+
+  LibreWolf is NOT associated with Mozilla or its products.
+  
+  Note: This is an unofficial repackaging and is not endorsed by the upstream project. Additionally, this package is probably has broken sandboxing and should only be used for testing purposes.
+
+confinement: strict
+base: core22
+compression: lzo
+grade: stable
+architectures:
+  - build-on: [amd64]
+    build-for: [amd64]
+
+package-repositories:
+  - type: apt
+    components: [main]
+    suites: [jammy]
+    key-id: 034F7776EF5E0C613D2F7934D29FBD5F93C0CFC3
+    url: https://deb.librewolf.net
+    
+parts:
+  librewolf:
+    plugin: nil
+    stage-packages: [librewolf, ffmpeg, ubuntu-restricted-extras]
+
+apps:
+  librewolf:
+    command: usr/bin/librewolf
+    extensions: [gnome]
+    plugs:
+      - home
+      - audio-playback
+      - removable-media # no auto-connect
+      - network
