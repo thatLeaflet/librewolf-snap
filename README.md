@@ -1,4 +1,9 @@
-Note: This is an unofficial repackaging and is not endorsed by the upstream project. Additionally, this package is probably has broken sandboxing and should only be used for testing purposes. The upstream Librewolf project can be found [here](https://librewolf.net/).
+Note: This is an unofficial repackaging and is not endorsed by the upstream project. The upstream Librewolf project can be found [here](https://librewolf.net/). Additionally,
+- this package is probably has broken sandboxing
+- missing functionality due to minimal snap permissions
+- will not automatically update
+- may not get timely updates
+- should only be used for testing purposes. 
 
 ## Want to build the snap yourself?
 
