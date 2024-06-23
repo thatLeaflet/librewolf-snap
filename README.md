@@ -3,6 +3,8 @@ Note: This is an unofficial repackaging and is not endorsed by the upstream proj
 - missing functionality due to minimal snap permissions
 - will not get automatically updated
 - may not get timely updates
+- can't be set as default browser
+- missing options in right click menu in application launcher (e.g. open private tab)
 - should only be used for testing purposes. 
 
 ## Want to build the snap yourself?
@@ -22,4 +24,5 @@ How to build the snap
 - Enter a nice working directory (e.g. ~/projects)
 - Download repo: run `git clone https://github.com/thatLeaflet/librewolf-snap.git && cd ./librewolf-snap`
 - Build the snap: run `snapcraft`
-- Install the snap: run `sudo snap install --dangerous ./librewolf_*.snap`
+- Install the snap: run `sudo snap install --dangerous ./librewolf_*_amd64.snap`
+- Add permissions: run `sudo snap connect librewolf:browser-sandbox`
