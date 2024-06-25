@@ -3,8 +3,6 @@ Note: This is an unofficial repackaging and is not endorsed by the upstream proj
 - missing functionality due to minimal snap permissions
 - will not get automatically updated
 - may not get timely updates
-- can't be set as default browser
-- missing options in right click menu in application launcher (e.g. open private tab)
 - should only be used for testing purposes. 
 
 ## Want to build the snap yourself?
