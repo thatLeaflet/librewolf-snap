@@ -47,6 +47,8 @@ apps:
   librewolf:
     command: usr/bin/librewolf
     extensions: [gnome]
+    environment:
+      HOME: "$SNAP_USER_COMMON"
     plugs:
       - audio-playback
       - browser-sandbox
