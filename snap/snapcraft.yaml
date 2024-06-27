@@ -1,6 +1,6 @@
 name: librewolf
 title: Librewolf (unofficial)
-version: 1.0
+adopt-info: librewolf # sets version using info from deb package
 license: MPL-2.0
 website: https://librewolf.net/
 source-code: https://codeberg.org/librewolf
@@ -35,7 +35,10 @@ package-repositories:
 parts:
   librewolf:
     plugin: nil
-    stage-packages: [librewolf, ffmpeg, ubuntu-restricted-extras]
+    stage-packages: [librewolf, ubuntu-restricted-extras]
+    override-pull: |
+      craftctl default
+      craftctl set version=$(dpkg-deb -f /root/parts/librewolf/stage_packages/librewolf* Version)
   cleanup:
     after: [librewolf]
     plugin: nil
@@ -50,6 +53,7 @@ parts:
       done
       find $SNAPCRAFT_PRIME/usr/share/doc/ -type f -not -name 'copyright' -delete
       find $SNAPCRAFT_PRIME/usr/share -type d -empty -delete
+    
 
 # taken from firefox snapcraft.yaml
 plugs:
