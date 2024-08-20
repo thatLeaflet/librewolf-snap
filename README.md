@@ -1,5 +1,6 @@
 Note: This is an unofficial repackaging and is not endorsed by the upstream project. The upstream Librewolf project can be found [here](https://librewolf.net/). Additionally,
 - this package probably has broken sandboxing / security issues
+  - but in theory has better sandboxing than flatpak due to user namespaces
 - missing functionality due to minimal snap permissions
 - will not get automatically updated
 - may not get timely updates
