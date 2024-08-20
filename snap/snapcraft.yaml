@@ -69,7 +69,7 @@ apps:
       HOME: "$SNAP_USER_COMMON"
     plugs:
       - audio-playback
-      - browser-sandbox
+      - browser-sandbox # no auto-connect
       - home
       - network
       - removable-media # no auto-connect
