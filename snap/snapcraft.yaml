@@ -53,13 +53,13 @@ parts:
       done
       find $SNAPCRAFT_PRIME/usr/share/doc/ -type f -not -name 'copyright' -delete
       find $SNAPCRAFT_PRIME/usr/share -type d -empty -delete
-    
 
-# taken from firefox snapcraft.yaml
 plugs:
+  # taken from firefox snapcraft.yaml
   browser-sandbox:
     interface: browser-support
     allow-sandbox: true
+  # from ffmpeg snap's github
   ffmpeg-2204:
     interface: content
     target: ffmpeg-platform
@@ -76,7 +76,6 @@ apps:
     plugs:
       - audio-playback
       - browser-sandbox # no auto-connect
-      - ffmpeg-2204
       - home
       - network
       - removable-media # no auto-connect
