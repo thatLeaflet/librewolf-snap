@@ -35,7 +35,7 @@ package-repositories:
 parts:
   librewolf:
     plugin: nil
-    stage-packages: [librewolf, ffmpeg, ubuntu-restricted-extras]
+    stage-packages: [librewolf, ubuntu-restricted-extras]
     override-pull: |
       craftctl default
       craftctl set version=$(dpkg-deb -f /root/parts/librewolf/stage_packages/librewolf* Version)
