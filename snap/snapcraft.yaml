@@ -60,16 +60,23 @@ plugs:
   browser-sandbox:
     interface: browser-support
     allow-sandbox: true
+  ffmpeg-2204:
+    interface: content
+    target: ffmpeg-platform
+    default-provider: ffmpeg-2204
 
 apps:
   librewolf:
     command: usr/bin/librewolf
     extensions: [gnome]
     environment:
+      LD_LIBRARY_PATH: $SNAP/ffmpeg-platform/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$LD_LIBRARY_PATH
+      PATH: $SNAP/ffmpeg-platform/usr/bin:$PATH
       HOME: "$SNAP_USER_COMMON"
     plugs:
       - audio-playback
       - browser-sandbox # no auto-connect
+      - ffmpeg-2204
       - home
       - network
       - removable-media # no auto-connect
