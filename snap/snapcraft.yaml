@@ -35,7 +35,7 @@ package-repositories:
 parts:
   librewolf:
     plugin: nil
-    stage-packages: [librewolf, ffmpeg, ubuntu-restricted-extras]
+    stage-packages: [librewolf, ubuntu-restricted-extras]
     override-pull: |
       craftctl default
       craftctl set version=$(dpkg-deb -f /root/parts/librewolf/stage_packages/librewolf* Version)
@@ -53,19 +53,25 @@ parts:
       done
       find $SNAPCRAFT_PRIME/usr/share/doc/ -type f -not -name 'copyright' -delete
       find $SNAPCRAFT_PRIME/usr/share -type d -empty -delete
-    
 
-# taken from firefox snapcraft.yaml
 plugs:
+  # taken from firefox snapcraft.yaml
   browser-sandbox:
     interface: browser-support
     allow-sandbox: true
+  # from ffmpeg snap's github
+  ffmpeg-2204:
+    interface: content
+    target: ffmpeg-platform
+    default-provider: ffmpeg-2204
 
 apps:
   librewolf:
     command: usr/bin/librewolf
     extensions: [gnome]
     environment:
+      LD_LIBRARY_PATH: $SNAP/ffmpeg-platform/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$LD_LIBRARY_PATH
+      PATH: $SNAP/ffmpeg-platform/usr/bin:$PATH
       HOME: "$SNAP_USER_COMMON"
     plugs:
       - audio-playback
