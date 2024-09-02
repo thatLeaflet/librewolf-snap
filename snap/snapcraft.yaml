@@ -38,7 +38,8 @@ parts:
     stage-packages: [librewolf, ubuntu-restricted-extras]
     override-pull: |
       craftctl default
-      craftctl set version=$(dpkg-deb -f /root/parts/librewolf/stage_packages/librewolf* Version)
+      LIBREWOLF_VERSION=$(dpkg-deb -f /root/parts/librewolf/stage_packages/librewolf* Version)
+      craftctl set version=$LIBREWOLF_VERSION
   cleanup:
     after: [librewolf]
     plugin: nil
