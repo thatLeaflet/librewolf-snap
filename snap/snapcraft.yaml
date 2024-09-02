@@ -39,7 +39,7 @@ parts:
     override-pull: |
       craftctl default
       LIBREWOLF_VERSION=$(dpkg-deb -f /root/parts/librewolf/stage_packages/librewolf* Version)
-      craftctl set version=$LIBREWOLF_VERSION
+      craftctl set version=0.1
   cleanup:
     after: [librewolf]
     plugin: nil
